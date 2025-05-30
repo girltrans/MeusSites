@@ -1,0 +1,198 @@
+  <html lang="pt-BR">
+   <head>
+	 <meta charset="UTF-8" />
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+	 <meta name="mobile-web-app-capable" content="yes">
+	 <meta name="apple-mobile-web-app-title" content="Área Protegida">
+	 <meta name="application-name" content="Área Protegida">
+
+	 <title>Área Protegida</title>
+	 <meta name="title" content="Área Protegida" />
+	 <meta name="description" content="Área Protegida." />
+	 <meta name="theme-color" content="#000" />
+	  
+	 <meta property="og:type" content="website">
+	 <meta property="og:url" content="index.html" />
+	 <meta property="og:image" content="icons/cadeado.png" />
+	 <meta property="og:title" content="Área Protegida" />
+	 <meta property="og:site_name" content="Área Protegida" />
+	 <meta property="og:description" content="Área Protegida." />
+
+	 <meta property="twitter:url" content="index.html" />
+	 <meta property="twitter:title" content="Área Protegida" />
+	 <meta property="twitter:description" content="Área Protegida." />
+	 <meta property="twitter:image" content="icons/cadeado.png" />
+
+	 <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	 <link rel="preconnect" href="https://fonts.googleapis.com">
+	 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	 <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=block" rel="stylesheet">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tippy.js/6.3.7/animations/shift-away.css" />
+	 <link rel="manifest" href="/manifest.json">
+	 <link rel="icon" href="./icon.ico">
+	 <link rel="apple-touch-icon" href="/icon.ico">
+
+	<style>
+		:root {
+		  --bg-color: #000;
+		  --text-color: #ffffff;
+		  --accent-color: #1e90ff;
+		  --input-bg: #1e1e1e;
+		  --border-color: #333;
+		}
+
+		body {
+		  background-color: var(--bg-color);
+		  color: var(--text-color);
+		  font-family: Arial, sans-serif;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  height: 100vh;
+		  margin: 0;
+		}
+
+		#login, #conteudo {
+		  background-color: #121212;
+		  padding: 30px;
+		  border-radius: 12px;
+		  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+		  width: 300px;
+		}
+
+		.senha-container {
+		  display: flex;
+		  align-items: center;
+		  gap: 10px;
+		}
+
+		input[type="password"],
+		input[type="text"] {
+		  flex: 1;
+		  min-width: 100%;
+		  padding: 10px;
+		  border: 1px solid var(--border-color);
+		  border-radius: 8px;
+		  background-color: var(--input-bg);
+		  color: var(--text-color);
+	   	}
+
+		input[type="checkbox"] {
+		accent-color: black;
+	   	}
+		
+		button {
+		  margin-top: 15px;
+		  padding: 10px 20px;
+		  width: 100%;
+		  background-color: var(--accent-color);
+		  border: none;
+		  border-radius: 8px;
+		  color: white;
+		  font-weight: bold;
+		  cursor: pointer;
+	   	}
+
+		button:hover {
+		  background-color: #3ea0ff;
+	   	}
+
+		a {
+		  color: var(--accent-color);
+		  text-decoration: none;
+	  	 }
+
+		a:hover {
+		  text-decoration: underline;
+	   	}
+
+		ul {
+		  padding-left: 20px;
+	   	}
+		a.github {
+		  position: fixed;
+		  width: 40px;
+		  height: 40px;
+		  right: 0;
+		  top: 0;
+		  margin: 2rem;
+		}
+		.github img {
+		width: 100%;
+		height: 100%;
+		filter: invert(1);
+		opacity: .2;
+		}
+		.senha-container label {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		cursor: pointer;
+	   	}
+
+		.senha-container input[type="checkbox"] {
+		margin-left: -30%;
+		cursor: pointer;
+		user-select: none;
+	   	}
+	</style>
+	 </head>
+	  <body>
+	   <a rel="nofollow" href="https://github.com/girltrans" target="_blank" title="GitHub Repositório" class="github"><img src="./icons/github.png" alt="GitHub Icon" title="GitHub"></a>
+		<div id="login">
+		 <h1>🔒Área Protegida</h1>
+		  <h2>🔑 Digite a Senha:</h2>
+		   <div class="senha-container">
+			<input type="password" id="senha" onkeydown="permitirAtalhos(event)"> <label>
+			 <input type="checkbox" id="mostrarCheckbox" title="Mostrar Senha" onclick="mostrarSenha()" onmouseover="atualizarTooltip()"></label>
+		</div>
+		 <button onclick="verificarSenha()">Entrar</button>
+		</div>
+			
+		<div id="conteudo" style="display:none;">
+		 <h2>🌐 Sites Disponíveis:</h2>
+		  <ul>
+		   <li><a href="https://autenticacaode2fatores.vercel.app/" target="_blank">🛡️ Autenticação De 2 Fatores </a><i></i></h1>
+		   <li><a href="https://steamid-mu.vercel.app/" target="_blank">🪪 Steam ID</a><i></i></h1>
+		   <li><a href="https://guiadeseguranca.vercel.app/" target="_blank">📁 Guia De Segurança</a><i></i></h1>
+		   <li><a href="https://minecraftverificarnicks.vercel.app/" target="_blank">🎮 Minecraft Verificar Nicks</a></li>
+		   <li><a target="_blank">❓ Em Breve!</a></li>
+		  </ul>
+		 <button onclick="window.location.href='index.html'">Voltar</button>
+		</div>
+
+		<script>
+		  function verificarSenha() {
+		  const senha = document.getElementById('senha').value;
+		  if (senha === '24082004') {
+		  document.getElementById('login').style.display = 'none';
+		  document.getElementById('conteudo').style.display = 'block';
+		  } else {
+		  alert('Senha incorreta!');
+		 }
+		}
+		  function permitirAtalhos(e) {
+		  if (e.key === "Enter") {
+		  verificarSenha();
+		  return;
+		  }
+		  if (e.ctrlKey) {
+		  const key = e.key.toLowerCase();
+		  if (key === 'a' || key === 'c' || key === 'v') {
+		  return true;
+		  }
+		 }
+		}
+		  function mostrarSenha() {
+		  const campo = document.getElementById("senha");
+		  campo.type = campo.type === "password" ? "text" : "password";
+		  checkbox.title = checkbox.checked ? "Ocultar Senha" : "Mostrar Senha";
+		}
+		  function atualizarTooltip() {
+		  const checkbox = document.getElementById("mostrarCheckbox");
+		  checkbox.title = checkbox.checked ? "Ocultar Senha" : "Mostrar Senha";
+		}
+		</script>
+	   </body>
+  </html>

@@ -1,0 +1,13 @@
+{
+    "short_name": "Área Protegida",
+    "name": "Área Protegida, Segurança de Sites.",
+    "icons": [
+        {
+            "src": "icon.ico",
+            "sizes": "27x32",
+            "type": "cadeado/png"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone"
+}
